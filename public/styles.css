@@ -1,0 +1,587 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap'); */
+@font-face {
+  font-family: 'myFont';            
+  src: url('font/myFont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+	font-family: 'Song Myung', serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #DDDEE0;
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    overflow: hidden;
+    font-family: "Sunflower", sans-serif;
+}
+
+#flipbook {
+    /* width: calc(100vh * 2 / 3);
+    height: 100vh; */
+    overflow:hidden;       
+    position:relative;     
+    background:#DDDEE0;
+
+}
+
+/* .flipbook .hard {
+    background: #c0392b !important;
+    color: #fff;
+    font-weight: bold;
+    border: none; 
+}
+
+.flipbook .hard small{
+	font-style: italic;
+	font-weight: lighter;
+	opacity: 0.7;
+	font-size: 14px;
+} */
+
+#flipbook .turn-page{
+    /* background: #DDDEE0; */
+    background: url("img/background.png");
+    background-size: cover;
+}
+#flipbook .page {
+    background: #DDDEE0;
+     background: url("img/background.png");
+    background-size: cover;
+
+	/* justify-content: center;
+	align-items: center; */
+    gap: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.11);
+
+    display: flex;
+	  flex-direction: column;
+    height: 100%;
+}
+
+
+
+/* 
+.page-content{
+  width:100%; height:100%;
+  display:flex; flex-direction:column;
+  justify-content:center; align-items:center;
+  gap:10px; padding:16px; box-sizing:border-box;
+} */
+
+/* .page img{
+	width: 70%;
+	object-fit: cover;
+	margin: auto;
+} */
+
+/* .flipbook .page small{
+	font-size: 14px;
+    margin-bottom: 10px;
+} */
+
+
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 2vh;
+    padding: 1rem 1rem 0rem 1rem;  
+    height: 40px;
+}
+
+.header-left img {
+  height: 90%; /* 부모 높이에 맞게 이미지 크기 조정 */
+  object-fit: contain; /* 비율 유지 */
+}
+
+
+.page-divider {
+  height: 0px;
+   border-top: 1.5px solid #1A110C;
+  background-color: #1A110C;
+  margin: 0 20px; 
+}
+
+.page-title{
+  font-family: 'Yuji Boku';
+  /* background-color: #1A110C;  */
+  /* color: white;              흰색 글자 */
+  text-align: center;        /* 가운데 정렬 */
+  font-size: 10vh;            /* 제목 크기 */
+  font-weight: 700;
+  /* padding: 0px 0px;           위아래 여백 */
+  /* margin: 10px 0px;       바깥 여백 */
+  /* font-family: 'Noto Serif KR', serif; */
+  letter-spacing: 2px;      
+}
+
+/* .page-image {
+  width: auto;
+  display: flex;
+  justify-content: center;  
+  margin: 0 20px; 
+  box-sizing: border-box;
+}
+
+.page-image img {
+
+  width: 100%;
+  height: auto;       
+  display: block;
+
+  opacity: 1;
+  transition: opacity 3s ease;
+}
+
+.page-image img.fading {
+  opacity: 0;  
+} */
+
+.page-subtitle {
+  text-align: center;
+  font-size: 3.5vh;
+  font-weight: bold;
+  margin: 3vh 0 3vh 0;
+}
+
+/* .page-body{
+  width: 100%;
+
+  font-size: 2.2vh;
+  line-height: 1.7;
+  text-align: justify;
+  word-break: keep-all;
+  padding: 0rem 1rem 0rem 1rem;  
+} */
+
+.page-body{
+  flex: 1 1 auto;          /* 본문이 중간 영역을 차지하도록 */
+  min-height: 0;           /* Firefox/Chromium에서 스크롤 막힘 방지 포인트 */
+  overflow: auto;          /* 본문만 스크롤 */
+  padding: 0 1rem;         /* 기존 패딩 유지 */
+  font-size: 2.2vh;
+  line-height: 1.7;
+  text-align: justify;
+  word-break: keep-all;
+  /* 선택: iOS 부드러운 스크롤 */
+  -webkit-overflow-scrolling: touch;
+}
+
+
+/* app.js가 생성 */
+.sentence{
+  font-family: "Gowun Batang", serif;
+  font-weight: 400;
+  display: inline;
+  margin-right: 6px;
+  cursor: pointer;
+  transition: color .2s ease;
+}
+/* .sentence:focus{ outline: 1px dashed #888; } */
+.sentence.distorting{
+  /* color: #B90705; */
+  font-family: "Gowun Batang", serif;
+  font-weight: 700;
+  /* text-decoration: underline wavy rgba(185,7,5,.6) 1.5px; */
+/* double, wavy */
+}
+.sentence[contenteditable="true"] {
+  outline: none;   /* 기본 테두리 제거 */
+  caret-color: black; /* 커서 색상 지정 (없애려면 transparent) */
+}
+/* 액션 박스 / 버튼 */
+/* .action-box{
+  display: flex;
+  justify-content: center;
+  margin-top: 1.6vh;
+}
+.action-btn{
+  padding: 1vh 2vw;
+  font-size: 1.8vh;
+  border: none;
+  border-radius: 6px;
+  background-color: #1A110C;
+  color: #fff;
+  cursor: pointer;
+}
+.action-btn:disabled{
+  background-color: #ccc;
+  color: #888;
+  cursor: not-allowed;
+} */
+
+/* 문장 옆 인라인 아이콘 버튼 */
+.action-btn-inline{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 1em;        /* ← 추가 (부모 글자 크기 상속) */
+  line-height: 1; 
+
+  width: 1.25em;
+  height: 1.25em;
+  /* margin-left: 6px; */
+  padding: 0;
+  margin-left: 0.2em;
+  margin-right: 0.1em;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: black;
+  line-height: 1;
+  /* vertical-align: middle; 문장과 기준선 맞추기 */
+}
+
+
+/* 인라인 편집/저장 버튼 */
+/* .action-btn-inline {
+  display: inline-block;
+  margin-left: .25em;
+  padding: 2px 6px;
+  border: 0;
+  background: #eee;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+}
+.action-btn-inline:disabled { opacity: .4; cursor: default; } */
+
+
+.action-btn-inline:disabled{
+  cursor: not-allowed;
+  opacity: .5;
+}
+
+.action-btn-inline i{
+  font-size: 1em;
+  transition: transform .15s ease, color .2s ease, opacity .2s ease;
+}
+
+
+
+.action-btn-inline:active i{
+  color: yellow; /* 누르고 있는 동안만 노랑 */
+}
+
+
+/* 페이지 하단(선택) */
+.page-footer
+{margin-top:auto; margin-bottom:10px; }
+.footer-center{
+  text-align: center;
+  font-size: 2vh;
+}
+
+
+/* .sentence[contenteditable="true"] {
+  /* margin-top:auto; margin-bottom:10px;  */
+  /* outline: none;   /* 기본 테두리 제거 */
+  /* caret-color: black; 커서 색상 지정 (없애려면 transparent) */
+/* }  */
+
+/* 왜곡 텍스트가 원문 옆에 붙도록 */
+.distorting { display: inline; font-weight: 700; margin-left: .25em; }
+
+
+
+
+/* 이 안에서 카드들이 깔릴 실제 리스트 */
+#displayList {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow: hidden;
+}
+
+/* messageList도 같은 규칙 쓰고 싶으면 같이 */
+#messageList {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow: hidden;
+}
+
+
+/* 각 종이카드(li) 공통 스타일 */
+.paper-card {
+  position: absolute;
+    text-align:center;
+  list-style: none;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  border: none;
+  /* box-shadow: 0 6px 24px rgba(0,0,0,.15); */
+  padding: 45px 20px; /* 텍스트 여백 */
+  transform-origin: center center;
+  word-break: keep-all;
+  white-space: normal;
+   cursor: pointer;          /* 클릭 가능하다는 신호, 팝업용 */
+  box-sizing: border-box;
+}
+
+.paper-card .msg {
+  font-size: clamp(14px, 2.2vh, 22px);
+  line-height: 1.35;
+  white-space: normal;
+  word-break: keep-all;
+}
+
+.paper-card .meta {
+  color: #666;
+  font-size: 12px;
+  margin-top: 8px;
+}
+
+/* 제목들 중앙 정렬 유지 */
+.archive-title {
+  text-align: center;
+  font-size: 3.5vh;
+  font-weight: bold;
+  margin-top: 2vh;
+  margin-bottom: 1vh;
+}
+.archive-subtitle {
+  text-align: center;
+  font-size: 2vh;
+  font-weight: regular;
+  margin-bottom: 2vh;
+}
+
+.board-wrapper {
+  position: relative;
+  width: 100vw;
+  height: calc(100vh - 14vh);
+  margin: 0 auto;
+  border: none;
+  overflow: hidden;
+  background: transparent;
+}
+
+
+#cardOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);      /* 반투명 어둡게 */
+  backdrop-filter: blur(4px);       약간 블러
+  -webkit-backdrop-filter: blur(4px);
+  display: none;                    /* 기본은 숨김 */
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+}
+
+.overlay-inner {
+  position: relative;
+  max-width: min(90vw, 600px);
+  max-height: 80vh;
+  width: 100%;
+
+  /* 안에 종이 하나 크게 보여줄 영역 */
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  padding: 50px 50px 50px 50px;
+  overflow-y: auto;   /* 내용 길면 스크롤 */
+  box-sizing: border-box;
+    text-align:center;
+
+  transform: rotate(0deg); /* 팝업 안에서는 기울어지지 않게 */
+  /* box-shadow: 0 20px 60px rgba(0,0,0,0.4); */
+}
+
+/* 닫기 버튼 */
+.overlay-close-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: rgba(0,0,0,0.7);
+  color: #fff;
+  border: none;
+  font-size: 14px;
+  line-height: 1;
+  padding: 8px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* 팝업 안의 본문 글씨 */
+.overlay-msg {
+  font-size: clamp(16px, 2.2vh, 22px);
+  line-height: 1.4;
+  word-break: keep-all;
+  white-space: normal;
+}
+.overlay-meta {
+  margin-top: 12px;
+  font-size: 12px;
+  color: #444;
+  opacity: 0.8;
+}
+
+.basicsentence {
+  font-family: "Gowun Batang", serif;
+  font-weight: 400;
+  display: inline;
+  margin-right: 6px;
+  cursor: pointer;
+  transition: color .2s ease;
+}
+
+[contenteditable="true"]:focus {
+  outline: none;
+  -webkit-user-modify: read-write-plaintext-only;
+}
+
+.sunflower-light {
+  font-family: "Sunflower", sans-serif;
+  font-weight: 300;
+}
+
+.poor-story-regular {
+  font-family: "Poor Story", system-ui;
+}
+
+.dokdo-regular {
+  font-family: "Dokdo", system-ui;
+}
+
+.east-sea-dokdo-regular {
+  font-family: "East Sea Dokdo", sans-serif;
+}
+
+.gaegu-regular {
+  font-family: "Gaegu", sans-serif;
+}
+
+.gowun-batang-regular {
+  font-family: "Gowun Batang", serif;
+}
+
+
+/* hint가 꽉 차게 나와서, 아래 코드로 바꿈 */
+/* .hintpage
+{
+  display: flex;
+  flex-direction: column;   
+  align-items: center;     
+  justify-content: center;
+  margin-top: 35%;          
+  text-align: center;
+  gap: 2vh;              
+}
+
+.hintnumber {
+  display: flex;
+  justify-content: space-between;  
+  align-items: center;
+  width: 80%;                      
+  gap: 1vw;                       
+}
+
+
+.hintnumber img {
+  flex: 1;                
+  max-width: 30%;           
+  height: auto;
+  object-fit: contain;      
+  transition: opacity 0.4s ease;
+  cursor: pointer;
+} */
+
+.hintpage{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  gap:2vh;
+  margin-top:25vh;          /* 상단 여백 조금 */
+}
+
+/* 3등분 그리드 */
+.hintnumber{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: min(1.6vw, 14px);
+  width: min(90%, 680px);   /* 가운데 정렬 + 최대폭 제한 */
+  margin: 0 auto;
+  align-items:center;
+}
+
+/* 이미지를 셀 안에 맞추기 */
+.hintnumber img{
+  width: 100%;
+  height: auto;
+  max-height: 24vh;        /* 너무 커지는 것 방지 */
+  object-fit: contain;     /* 비율 유지해서 맞추기 */
+  display:block;
+  transition: opacity .3s ease;
+  cursor:pointer;
+}
+
+#final-popup {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  display: none;              /* 기본 숨김 */
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+/* 팝업 본체: 찢어진 종이 이미지 자체 */
+.final-popup-inner {
+  position: relative;
+  background-image: url("img/finalpopup.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  /* 원본 비율 유지 (피그마 width=734, height=278 기준) */
+  width: min(90vw, 60vh);
+  aspect-ratio: 734 / 278;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  /* 글자는 이미지 위에 얹히는 거라 text-align 필요 */
+  text-align: center;
+  color: #000;
+}
+
+/* 카운트다운 문장 한 줄 */
+.final-popup-countline {
+  font-size: 2.2vh;   /* 뷰포트 세로 기준이라 전체랑 같이 스케일 */
+  font-weight: 700;
+  line-height: 1.4;
+
+  /* 이미지 안에서의 세로 위치를 맞추려면 margin/padding으로 내리거나 올려 */
+  /* 예: 카운트 텍스트가 이미지 아래쪽에 있으면 margin-top을 크게 준다 */
+  margin-top: 8vh;   /* 값은 네 디자인 보고 조정 */
+  /* width 제한해서 줄바꿈 안정화하고 싶으면 아래 같이 */
+  width: 80%;
+}
+#count-num {
+  font-weight: 700;
+}

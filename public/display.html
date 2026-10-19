@@ -1,0 +1,890 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css">
+  <title>公論紙</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Gothic+A1&family=Gowun+Batang&family=Jua&family=Noto+Sans+KR:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Song+Myung&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&family=Yuji+Boku&display=swap"
+    rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Gothic+A1&family=Gowun+Batang&family=Jua&family=Noto+Sans+KR:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Song+Myung&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"> </script>
+  <script src="turn.js"></script>
+  <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
+
+ 
+
+  <!-- <style>
+    body {
+      font-family: system-ui, sans-serif;
+      max-width: 720px;
+      margin: 40px auto;
+      padding: 0 16px;
+    }
+
+    .row {
+      display: flex;
+      gap: 8px;
+      margin: 16px 0;
+    }
+
+    input {
+      flex: 1;
+      padding: 12px;
+      font-size: 16px;
+    }
+
+    button {
+      padding: 12px 16px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 16px;
+    }
+
+    li {
+      padding: 8px 10px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      margin-bottom: 8px;
+    }
+
+    .meta {
+      color: #666;
+      font-size: 12px;
+      margin-top: 4px;
+    }
+
+    .status {
+      font-size: 14px;
+      margin-top: 8px;
+    }
+  </style> -->
+</head>
+
+<body>
+  <!-- <div class="page cover">
+      <h1 class="page-title">제 1장.</h1>
+      <p style="text-align:center; margin-top:2rem;">시작하려면 페이지를 넘기세요</p>
+    </div> -->
+  <div id="flipbook">
+    <!-- 1. 포스터 페이지 -->
+    <div class="page cover" onmousemove="coverMove(event, this)">
+      <img src="img/poster.png" alt="posterImage" />
+    </div>
+
+
+    <!-- 2. 배경 설명 페이지 -->
+    <div class="page2">
+      <video id="page2video" src="img/Before.mp4" muted playsinline autoplay preload="auto"
+        style="width:auto;height:100%;display:block;"> </video>
+    </div>
+
+
+
+    <!-- 페이지3 -->
+    <div class="page page3">
+      <header class="page-header">
+        <!-- <div class="header-left">西江大學校</div> -->
+        <div class="header-left">
+          <!-- <img src="img/logo.png" alt="Logo" class="logo"> -->
+        </div>
+        <!-- <div class="header-center">Art with Impact</div> -->
+        <!-- <div class="header-right current-date"></div> -->
+      </header>
+      <div class="page-divider"></div>
+      <h1 class="page-title">公 論 紙</h1>
+      <div class="page-divider"></div>
+      <section class="page-subtitle">
+        <!-- "좋은 일자리라는 말만 믿었는데..." -->
+         What they promise, it was all lie
+      </section>
+      <!-- <div class="page-body">
+        <span class="basicsentence" id="p3s1">1943년 어느 시골 마을에서 어린 소녀들을 대상으로 한 대규모 인력 모집이 이뤄졌다.</span>
+        <span class="basicsentence" id="p3s2">모집책들은 “따뜻한 일본 공장에서 안정적으로 일하며 숙식이 보장된다”는 조건을 내세웠다.</span>
+        <span class="basicsentence" id="p3s3">구인 대상은 주로 여성으로, 연령대를 불문하고 선발하였다.</span>
+        <span class="basicsentence" id="p3s4">대부분 가족들의 극심한 생계 문제를 해결하기 위해 지원하였으나,</span>
+        <span class="basicsentence" id="p3s5">영문도 모른 채 좁은 트럭에 실려 기차와 배로 장시간 강제 이동했다.</span>
+        <span class="basicsentence" id="p3s6">도착지에는 수백 명의 또래들이 집결해 있었지만 약속된 공장은 존재하지 않았다.</span>
+        <span class="basicsentence" id="p3s7">그 대신 열악한 천막과 임시 막사, 창고만이 기다리고 있었다.</span>
+        <span class="basicsentence" id="p3s8">군인들은 소녀들의 머리를 자르고 일본식 가짜 이름으로 호명했다.</span>
+        <span class="basicsentence" id="p3s9">이는 사실상 단순한 취업 사기가 아닌 조직적 강제 동원으로 드러났다.</span>
+      </div> -->
+      <div class="page-body">
+        <span class="basicsentence" id="p3s1">In 1943, recruiters came to a small village, looking for young girls and women.</span>
+        <span class="basicsentence" id="p3s2">The recruiters promised steady factory work in Japan, with food and lodging provided.</span>
+        <span class="basicsentence" id="p3s3">The applicants were mostly women, chosen regardless of age.</span>
+        <span class="basicsentence" id="p3s4">Most of them applied hoping to lift their families out of poverty.</span>
+        <span class="basicsentence" id="p3s5">But before long, they were packed into cramped trucks and taken away — traveling for hours by train and ship, without being told where or why.</span>
+        <span class="basicsentence" id="p3s6">When they finally arrived, hundreds of women had already been gathered there.</span>
+        <span class="basicsentence" id="p3s7">The promised factory was nowhere to be found. Instead, there were only tattered tents, makeshift barracks, and dim warehouses.</span>
+        <span class="basicsentence" id="p3s8">Soldiers cut off their hair and called them by Japanese names.</span>
+        <span class="basicsentence" id="p3s9">It soon became clear that this was no job offer at all, but an organized act of forced mobilization.</span>
+      </div>
+      <footer class="page-footer">
+        <div class="page-divider"></div>
+        <div class="footer-center"></div>
+      </footer>
+    </div>
+
+    <div class="page page4">
+      <div class="hintpage">
+        Click the card and you'll see a hint.
+        <!-- 첫 번째 카드를 클릭해서 힌트를 확인하세요! <br> (힌트를 확인하면, 자동으로 페이지가 넘어가요.) -->
+        <div class="hintnumber">
+          <img src="img/Frame.png" alt="Frame" class="Frame">
+          <img src="img/Frame.png" alt="Frame" class="Frame">
+          <img src="img/Frame.png" alt="Frame" class="Frame">
+        </div>
+      </div>
+
+    </div>
+
+
+
+
+    <!-- 페이지4 -->
+    <div class="page page5">
+      <header class="page-header">
+        <!-- <div class="header-left">西江大學校</div> -->
+        <div class="header-left">
+          <img src="img/logo.png" alt="Logo" class="logo">
+        </div>
+        <!-- <div class="header-center">Art with Impact</div> -->
+        <div class="header-right current-date"></div>
+      </header>
+      <div class="page-divider"></div>
+      <h1 class="page-title">公 論 紙</h1>
+      <div class="page-divider"></div>
+      <section class="page-subtitle">
+        폭력으로 얼룩진 위안소의 진실
+      </section>
+      <div class="page-body">
+        <span class="basicsentence" id="p5s1">강제 동원된 여성들은 도착 직후 군 위안소로 강제로 배치된 것으로 확인됐다.</span>
+        <span class="basicsentence" id="p5s2">위안소 내부에는 일본군 병사들이 줄을 서서 순번을 기다리고 있었으며,</span>
+        <span class="basicsentence" id="p5s3">좁고 허름한 방 구조 속에서는 도망치는 것이 사실상 불가능했다.</span>
+        <span class="basicsentence" id="p5s4">피해자들은 저항할 경우 무차별적인 폭행과 협박을 당한 것으로 조사됐다.</span>
+        <span class="basicsentence" id="p5s5">지시에 불응한 피해자들은 반복적으로 심각한 구타를 당한 것으로 알려졌다.</span>
+        <span class="basicsentence" id="p5s6">일부 피해자는 몸에 칼자국과 상처가 남을 정도로 심각한 피해를 입은 것으로 전해졌다.</span>
+        <span class="basicsentence" id="p5s7">피해자들이 지낸 위안소는 매우 열악한 환경으로, 하루에도 수십 명의 병사를 상대해야 했다.</span>
+        <span class="basicsentence" id="p5s8">피해자들은 제대로 된 치료조차 받지 못한 채 지속적으로 폭력에 노출된 것으로 드러났다.</span>
+      </div>
+      <footer class="page-footer">
+        <div class="page-divider"></div>
+        <div class="footer-center">Produced by Hyebin Seo, Imsun Jung</div>
+      </footer>
+    </div>
+
+
+
+
+    <div class="page page6">
+      <div class="hintpage">
+           두 번째 카드를 클릭해서 힌트를 확인하세요!  <br> (힌트를 확인하면, 자동으로 페이지가 넘어가요.)
+        <div class="hintnumber">
+          <img src="img/8.png" alt="Frame" class="Frame">
+          <img src="img/Frame.png" alt="Frame" class="Frame">
+          <img src="img/Frame.png" alt="Frame" class="Frame">
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 페이지 5 -->
+    <div class="page page7">
+      <header class="page-header">
+        <!-- <div class="header-left">西江大學校</div> -->
+        <div class="header-left">
+          <!-- <img src="img/logo.png" alt="Logo" class="logo"> -->
+        </div>
+        <!-- <div class="header-center">Art with Impact</div> -->
+        <!-- <div class="header-right current-date"></div> -->
+      </header>
+      <div class="page-divider"></div>
+      <h1 class="page-title">公 論 紙</h1>
+      <div class="page-divider"></div>
+      <section class="page-subtitle">
+        <!-- 돌아온 이들이 마주한 냉대 -->
+         A Cold and Unkind Society
+      </section>
+      <!-- <div class="page-body">
+        <span class="basicsentence" id="p7s1">1945년 해방 직후 일부 여성들은 어렵게 고향으로 돌아온 것으로 확인됐다.</span>
+        <span class="basicsentence" id="p7s2">그러나 예상과는 달리 이들은 사회의 환영을 받지 못하고 오히려 사회적 냉대에 직면했다.</span>
+        <span class="basicsentence" id="p7s3">일부 피해자의 가족들은 피해 사실을 부정하거나 감추려 한 것으로 드러났다.</span>
+        <span class="basicsentence" id="p7s4">뿐만 아니라 사회적으로 귀향한 여성에게 모욕을 가하거나</span>
+        <span class="basicsentence" id="p7s5">피해자가 아닌 일본군과 협력적인 관계였던 이해관계자로 낙인찍은 사례도 보고되었다.</span>
+        <span class="basicsentence" id="p7s6">피해자들이 피해 사실을 밝히더라도 그들의 편에서 이야기를 들어주는 경우는 드물었으며,</span>
+        <span class="basicsentence" id="p7s7">이 같은 배제는 피해자들이 피해 사실을 밝히지 못하고 결국 홀로 고통을 감내하게 만드는 상황을 초래했다.</span>
+        <span class="basicsentence" id="p7s8">일부 여성들은 마을을 떠나 외로운 유랑 생활을 이어가기도 했으며,</span>
+        <span class="basicsentence" id="p7s9">이러한 사회적 낙인은 피해자에게 평생 지워지지 않는 상처로 남았다.</span>
+      </div> -->
+      <div class="page-body">
+        <span class="basicsentence" id="p7s1">After the liberation in 1945, a few women managed with great difficulty to find their way back home.</span>
+        <span class="basicsentence" id="p7s2">But instead of the welcome they had hoped for, they were met with silence and rejection.</span>
+        <span class="basicsentence" id="p7s3">Some families denied what had happened to their daughters, while others tried to hide it altogether.</span>
+        <span class="basicsentence" id="p7s4">In many communities, the returning women were shunned, </span>
+        <span class="basicsentence" id="p7s5">even condemned as if they had sided with the perpetrators rather than been victims.</span>
+        <span class="basicsentence" id="p7s6">When they tried to speak, few were willing to listen.</span>
+        <span class="basicsentence" id="p7s7">Cut off from understanding and support, many fell into silence, carrying their pain alone.</span>
+        <span class="basicsentence" id="p7s8">Some tried to live quietly on what little they had earned in the comfort stations; others left their villages behind and wandered from place to place.</span>
+        <span class="basicsentence" id="p7s9">The stigma followed them for the rest of their lives — a wound that never truly healed.</span>
+      </div>
+      <footer class="page-footer">
+        <div class="page-divider"></div>
+        <div class="footer-center"> </div>
+      </footer>
+    </div>
+    <!-- 페이지 6 -->
+
+
+
+    <div class="page page8">
+      <div class="hintpage">
+           세 번째 카드를 클릭해서 힌트를 확인하세요! <br> p.s. 아직 힌트가 하나 더 남았어요 :)
+        <div class="hintnumber">
+          <img src="img/8.png" alt="Frame" class="Frame">
+          <img src="img/1.png" alt="Frame" class="Frame">
+          <img src="img/Frame.png" alt="Frame" class="Frame">
+        </div>
+      </div>
+    </div>
+
+    <div class="page page9">
+      <header class="page-header">
+        <!-- <div class="header-left">西江大學校</div> -->
+        <div class="header-left">
+          <img src="img/logo.png" alt="Logo" class="logo">
+        </div>
+
+        <!-- <div class="header-center">Art with Impact</div> -->
+        <div class="header-right current-date">
+        </div>
+      </header>
+      <div class="page-divider"></div>
+      <h1 class="page-title">公 論 紙</h1>
+      <div class="page-divider"></div>
+      <section class="page-subtitle">
+        여전히 부재한 진심 어린 사과
+      </section>
+      <div class="page-body">
+        <span class="basicsentence" id="p9s1">1990년대 들어 한국 정부가 피해 신고를 공식 접수한 사실이 확인됐다.</span>
+        <span class="basicsentence" id="p9s2">일본 정부는 강제 동원 사실을 부인하며 법적 책임을 회피한 것으로 나타났다.</span>
+        <span class="basicsentence" id="p9s3">일부 정치 지도자들은 사과 발언을 번복하거나 부정적인 태도를 보이기도 했다.</span>
+        <span class="basicsentence" id="p9s4">학계 일각에서는 피해자를 매춘부로 규정하는 왜곡이 발견돼 큰 논란이 일었다.</span>
+        <span class="basicsentence" id="p9s5">피해자들은 존엄 회복을 위해 다양한 자리에서 증언을 이어가고 있다.</span>
+        <span class="basicsentence" id="p9s6">그러나 이미 많은 피해자들은 고령에 이르러 현 세대의 관심과 지원이 절실한 상황이다.</span>
+        <span class="basicsentence" id="p9s7">이를 위해 국내뿐만 아니라 일본의 역사 단체들도 역사적 왜곡을 중단하기 위한 노력을 이어가고 있다.</span>
+        <span class="basicsentence" id="p9s8">국제 사회에서도 사죄와 배상 요구가 지속적으로 제기되고 있음에도 불구하고, 일본 정부의 공식적이고 진정성 있는 사과는 끝내 이루어지지
+          않았다.</span>
+      </div>
+      <footer class="page-footer">
+        <div class="page-divider"></div>
+        <div class="footer-center">Produced by Hyebin Seo, Imsun Jung</div>
+      </footer>
+    </div>
+
+
+    <!-- 최종 힌트 페이지 -->
+
+    <div class="page page10">
+      <!-- <p>gkdldfdf</p> -->
+      <video id="page10video" src="img/After.mp4" autoplay muted playsinline preload="auto"
+        style="width:auto;height:100%;display:block;"> </video>
+    </div>
+
+  </div>
+<div id="final-popup" class="final-popup" aria-hidden="true">
+  <div class="final-popup-inner">
+    <div class="final-popup-countline">
+      <span id="count-num">15</span>초 후 처음 화면으로 돌아갑니다.
+    </div>
+  </div>
+</div>
+
+  </div>
+
+
+  <script>
+    $(document).ready(function () {
+      const h = $(window).height();
+      const w = h * (9 / 16);  // 비율 9:16 맞춤
+
+      $("#flipbook").turn({
+        display: 'single',
+        width: w,
+        height: h,
+        autoCenter: true
+      });
+
+    });
+  </script>
+
+  <script>
+    // flipbook 초기화 바로 아래에 붙이기
+    (function () {
+      const v2 = document.getElementById('page2video');
+      const v10 = document.getElementById('page10video');
+
+      function tryPlay(v) {
+        if (!v) return;
+        v.muted = true;                              // iOS/모바일 자동재생 필수
+        v.setAttribute('playsinline', '');
+        v.playsInline = true;
+        // 가끔 초기 상태라면 로드부터
+        if (v.readyState < 2) v.load();
+
+        const p = v.play();
+        if (p && typeof p.catch === 'function') {
+          p.catch(() => {
+            // 자동재생이 막히면 첫 사용자 제스처에서 재생
+            const resume = () => {
+              v.play().finally(() => {
+                window.removeEventListener('click', resume);
+                window.removeEventListener('touchend', resume);
+              });
+            };
+            window.addEventListener('click', resume, { once: true });
+            window.addEventListener('touchend', resume, { once: true });
+          });
+        }
+      }
+
+      // 페이지 전환 시점에 재생/정지
+      $("#flipbook").on("turned", function (_e, page) {
+        // page2
+        if (v2) {
+          if (page === 2) tryPlay(v2);
+          else { v2.pause(); v2.currentTime = 0; }
+        }
+        // page10
+        if (v10) {
+          if (page === 10) tryPlay(v10);
+          else { v10.pause(); v10.currentTime = 0; }
+        }
+      });
+    })();
+  </script>
+
+
+  <script defer src="./script.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const d = new Date();
+      const yyyy = d.getFullYear();
+      const mm = String(d.getMonth() + 1).padStart(2, "0");
+      const dd = String(d.getDate()).padStart(2, "0");
+      const dateStr = `${yyyy}年 ${mm}月 ${dd}日`;
+
+      document.querySelectorAll(".current-date").forEach(el => {
+        el.textContent = dateStr;
+      });
+    });
+  </script>
+
+  <script>
+    // 좌↔우로 방향 전환이 3번 발생하면 다음 페이지
+    function coverMove(e, el) {
+      var x = e.clientX;
+      var prev = (el._prevX !== undefined) ? el._prevX : x;
+      var dir = el._dir || '';
+      var ndir = (x > prev) ? 'R' : (x < prev) ? 'L' : dir;
+
+      // 너무 미세한 떨림은 무시 (임계값 px)
+      var THRESH = 12;
+
+      if (ndir !== dir && Math.abs(x - prev) > THRESH) {
+        el._swings = (el._swings || 0) + 1;
+        if (el._swings >= 5) {
+          $("#flipbook").turn("next");
+          el.onmousemove = null; // 한 번만 동작
+          return;
+        }
+      }
+
+      el._dir = ndir;
+      el._prevX = x;
+    }
+  </script>
+
+  <script>
+    // === 페이지별 왜곡 설정 ===
+    // targetId: 왜곡을 "옆에" 붙일 원문 span의 id (p{page}s{slot})
+    // text: 타자 효과로 등장할 왜곡 문장
+    // const PLAN = {
+    //   3: { targetId: 'p3s3', text: '소녀들은 모두 어떤 일을 하게 될 것인지 명확하게 알고 자발적으로 지원하였다.' },
+    //   5: { targetId: 'p5s5', text: '일본군 위안소에서 일어난 일들은 모두 자발적으로 합의 하에 이루어졌다.' },
+    //   7: { targetId: 'p7s7', text: '귀향한 여성들은 위안소에서 벌어온 보수로 편안하고 안락한 삶을 지냈다.' },
+    //   9: { targetId: 'p9s4', text: '피해자들이 이미 보상과 합의를 통해 문제를 해결했다.' } // 4페이지는 p4s4에 붙임
+    // };
+    const PLAN = {
+      3: { targetId: 'p3s3', text: 'The applicants fully understood what kind of work they were signing up for and joined voluntarily.' },
+      5: { targetId: 'p5s5', text: '일본군 위안소에서 일어난 일들은 모두 자발적으로 합의 하에 이루어졌다.' },
+      7: { targetId: 'p7s7', text: 'They lived comfortable and easy lives with the wages they had earned.' },
+      9: { targetId: 'p9s4', text: '피해자들이 이미 보상과 합의를 통해 문제를 해결했다.' } // 4페이지는 p4s4에 붙임
+    };
+
+    const DELAY_MS = 3000;          // 5초
+    const timers = new Map();       // 페이지별 예약 타이머
+    const done = new Set();       // 이미 실행된 페이지(중복 방지)
+
+    // 원문 옆에 ghost(왜곡) + 편집 버튼 붙이고, 타자 효과 시작
+    function typeAndEnableEdit(targetId, text) {
+      const anchor = document.getElementById(targetId);
+      if (!anchor) return;
+
+      // 중복 삽입 방지
+      if (anchor.dataset.distortionAttached === '1') return;
+      anchor.dataset.distortionAttached = '1';
+
+      // 1) 원문 뒤에 ghost 스팬 삽입
+      const ghost = document.createElement('span');
+      ghost.className = 'distorting';
+      ghost.textContent = '';
+      anchor.insertAdjacentElement('afterend', ghost);
+
+      // 2) 편집 버튼
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'action-btn-inline';
+      btn.textContent = '수정';
+      btn.innerHTML = '<i class="fas fa-pen"></i>';
+      ghost.insertAdjacentElement('afterend', btn);
+
+      // 3) 타자 효과
+      const tw = new Typewriter(ghost, { autoStart: false, delay: 100, cursor: '|' });
+      tw.typeString(text).start();
+
+      // 4) 인라인 편집 진입
+      function enterEdit() {
+        // 타자 커서 제거
+        const cursor = ghost.parentNode.querySelector('.Typewriter__cursor');
+        if (cursor) cursor.remove();
+        ghost.textContent = "";
+        ghost.contentEditable = 'true';
+        ghost.focus();
+        btn.textContent = '저장';
+        btn.innerHTML = '<i class="fas fa-paper-plane"></i>';
+        btn.disabled = ghost.textContent.trim().length < 10;
+
+        const onInput = () => {
+          btn.disabled = ghost.textContent.trim().length < 10;
+        };
+        ghost.addEventListener('input', onInput);
+
+        btn.onclick = async () => {
+          const edited = ghost.textContent.trim();
+          if (edited.length < 10) return;
+
+          // 1. 원문(anchor) 교체
+          anchor.textContent = edited;
+
+          // 3. 편집 UI 정리
+          ghost.remove();
+          btn.remove();
+
+        // 4. 2초 기다렸다가 자동으로 다음 페이지로 넘기기
+    setTimeout(() => {
+      // flipbook 다음 페이지로 이동
+      $("#flipbook").turn("next");
+    }, 2000); // 2000ms = 2초
+        };
+
+      }
+
+      ghost.onclick = enterEdit;
+      btn.onclick = (e) => { e.stopPropagation(); enterEdit(); };
+    }
+
+    // 해당 페이지에 대한 타이머 예약
+    function scheduleFor(pageNum) {
+      if (!PLAN[pageNum] || done.has(pageNum) || timers.has(pageNum)) return;
+
+      const t = setTimeout(() => {
+        const { targetId, text } = PLAN[pageNum];
+        typeAndEnableEdit(targetId, text);
+        done.add(pageNum);
+        timers.delete(pageNum);
+      }, DELAY_MS);
+
+      timers.set(pageNum, t);
+    }
+
+    // === turn.js 초기화 아래에서 호출 ===
+    $(function () {
+      // 현재 보이는 페이지 예약
+      scheduleFor($("#flipbook").turn("page"));
+
+      // 페이지가 보일 때마다 예약
+      $("#flipbook").bind("turned", function (_e, page) {
+        scheduleFor(page);
+      });
+    });
+  </script>
+
+  <!-- 영상 대신 타이핑할 때 필요한 코드! 1027
+<style>
+  #flipbook .page2 {
+    white-space: pre-wrap;
+    line-height: 1.6;
+    font-size: 16px;
+    font-family: "Noto Sans KR", system-ui, -apple-system, "Segoe UI", Helvetica, Arial, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    min-height: 240px;
+    position: relative;
+    padding: 0;
+    overflow: auto;
+  }
+  #flipbook .page2.typing::after {
+    content: "▎";
+    display: inline-block;
+    animation: blink 1s steps(1) infinite;
+    vertical-align: baseline;
+    margin-left: 2px;
+  }
+  @keyframes blink { 50% { opacity: 0; } }
+</style> -->
+  <!-- 
+<script>
+(function(){
+  const container = document.querySelector('#flipbook .page2');
+  if (!container) { console.error('타겟 요소 #flipbook .page2 없음'); return; }
+
+  const paragraphs = [
+`안녕하세요.
+우리 공론지의 기자 역할에 지원해주셔서 감사합니다.
+먼저, 우리가 왜 당신을 필요로 하는지 이야기해드릴게요.`,
+
+`공론지는 공개적으로 열려 있는 의견을 전하는 신문입니다.
+즉, 누구나 문장을 수정하고 정정하는 데 참여할 수 있죠.
+
+이 역할은 시대마다 다른 방식으로 존재했어요.
+
+말을 직접 전달하던 시대에는 소식을 전하는 사람이 필요했고,
+인쇄술이 발달한 시대에는 인쇄공이 필요했으며,
+근대 이후에는 신문을 제작하는 기자가 필요했어요.`,
+
+`그리고 2025년, 우리는 또 다른 흐름을 따르기로 했습니다.
+휴대폰과 노트북 어디에서든 실시간으로 메시지를 볼 수 있는 시대죠.`,
+
+`하지만 문제도 생겼습니다.
+실시간으로 메시지를 전달하는 만큼, 거짓된 문장들이 끼어들어 우리의 메시지를 오염시키고 있어요.`,
+
+`그래서 지금의 공론지는 누군가가 계속해서 이 오염된 문장을 진실로 고쳐 써주는 일을 필요로 합니다.
+그 누가 바로 당신이에요.`,
+
+`‘고쳐쓰기’는 아주 간단합니다.
+
+1. 각 페이지가 열리면, 오염된 문장이 나타납니다.
+2. 문장 옆의 버튼을 눌러 새로운 문장으로 덮어씁니다.
+3. 저장 버튼을 누르면 끝!
+
+이렇게 총 4개의 페이지를 수정해주세요.
+
+그렇다면, 어떻게 문장을 고쳐 써야 할까요?`,
+
+`우리 공론지는 세상에 존재하는 수많은 이들을 위해 존재하고,
+그들의 진실을 근거로 새로운 문장을 만들어내고 있어요.
+
+당신 앞에 놓인 ‘소녀’의 일기가 바로 그 힌트입니다.
+그 일기를 열어보면 새로운 문장을 써낼 단서들을 얻을 수 있습니다.`,
+
+`결국 우리는 이 ‘소녀’의 진실된 이야기를 지켜내고,
+그 이야기를 모두와 함께 공유하기 위해 만들어진 신문이에요.
+소녀가 누구인지는, 직접 ‘고쳐쓰기’를 하면서 자연스럽게 알게 될 거예요.`,
+
+`자, 준비가 되셨다면,
+이제 페이지 모서리를 마우스로 잡아 당겨 넘겨주세요!`
+  ];
+
+  // ===== 조절 파라미터 =====
+  const TYPE_DELAY       = 80;    // 글자당 타이핑 속도(ms)
+  const SENTENCE_PAUSE   = 500;   // 문장 끝(. ? !) 뒤 추가 대기(ms)
+  const PARAGRAPH_HOLD   = 1000;  // 문단 타이핑 완료 후 대기(ms)
+  const ERASE_ALL_STEP   = 8;     // 전체 삭제 시 한 번에 지울 문자 수
+  const ERASE_ALL_DELAY  = 8;     // 전체 삭제 속도(ms/스텝)
+  const AUTO_SCROLL      = true;  // 타이핑 중 자동 스크롤
+
+  // “그 누가 바로 당신이에요.” 문단(= index 4)까지 타이핑 후 싹 지우고,
+  // 다음 문단(= index 5, ‘고쳐쓰기’는 아주 간단합니다)부터 다시 시작
+  const RESTART_AFTER_INDEX = 4;   // 0 기반 index
+
+  const sleep = (ms) => new Promise(res => setTimeout(res, ms));
+
+  async function typeAppend(el, text, addLeadingBlankLine = true) {
+    el.classList.add('typing');
+
+    // 문단 사이 공백 줄 추가
+    if (el.textContent.trim().length > 0 && addLeadingBlankLine) {
+      el.textContent += '\n\n';
+    }
+
+    for (let i = 0; i < text.length; i++) {
+      el.textContent += text[i];
+
+      // 문장부호 뒤엔 잠깐 더 쉬기
+      if (/[.?!]/.test(text[i])) {
+        await sleep(SENTENCE_PAUSE);
+      } else {
+        await sleep(TYPE_DELAY);
+      }
+
+      if (AUTO_SCROLL) el.scrollTop = el.scrollHeight;
+    }
+
+    el.classList.remove('typing');
+  }
+
+  async function eraseAll(el) {
+    el.classList.add('typing');
+    while (el.textContent.length > 0) {
+      el.textContent = el.textContent.slice(0, Math.max(0, el.textContent.length - ERASE_ALL_STEP));
+      await sleep(ERASE_ALL_DELAY);
+    }
+    el.classList.remove('typing');
+  }
+
+  (async function run() {
+    // 1) “바로 당신이에요.”(index 4)까지 이어서 타이핑
+    for (let i = 0; i <= RESTART_AFTER_INDEX; i++) {
+      await typeAppend(container, paragraphs[i], true);
+      await sleep(PARAGRAPH_HOLD);
+    }
+
+    // 2) 전부 싹 지우기
+    await eraseAll(container);
+    await sleep(250);
+
+    // 3) ‘고쳐쓰기’ 문단(index 5)부터 끝까지 다시 타이핑
+    for (let i = RESTART_AFTER_INDEX + 1; i < paragraphs.length; i++) {
+      await typeAppend(container, paragraphs[i], (i !== RESTART_AFTER_INDEX + 1));
+      await sleep(PARAGRAPH_HOLD);
+    }
+  })();
+})();
+</script> -->
+
+
+
+  <!-- <script>function startPage2Typing() {
+  const page2 = document.querySelector('#flipbook .page2');
+  if (!page2) return;
+  
+  // 이미 타이핑이 시작된 경우 중복 실행 방지
+  if (page2.dataset.typingStarted === 'true') return;
+  page2.dataset.typingStarted = 'true';
+  
+  // 원본 텍스트 저장
+  const originalText = `안녕하세요.
+우리 공론지의 기자 역할에 지원해주셔서 감사합니다.
+먼저, 우리가 왜 당신을 필요로 하는지 이야기해드릴게요.
+
+공론지는 공개적으로 열려 있는 의견을 전하는 신문입니다.
+즉, 누구나 문장을 수정하고 정정하는 데 참여할 수 있죠.
+
+이 역할은 시대마다 다른 방식으로 존재했어요.
+
+말을 직접 전달하던 시대에는 소식을 전하는 사람이 필요했고,
+인쇄술이 발달한 시대에는 인쇄공이 필요했으며,
+근대 이후에는 신문을 제작하는 기자가 필요했어요.
+
+그리고 2025년, 우리는 또 다른 흐름을 따르기로 했습니다.
+휴대폰과 노트북 어디에서든 실시간으로 메시지를 볼 수 있는 시대죠.
+
+하지만 문제도 생겼습니다.
+실시간으로 메시지를 전달하는 만큼, 거짓된 문장들이 끼어들어 우리의 메시지를 오염시키고 있어요.
+
+그래서 지금의 공론지는 누군가가 계속해서 이 오염된 문장을 진실로 고쳐 써주는 일을 필요로 합니다.
+그 누가 바로 당신이에요.
+
+‘고쳐쓰기’는 아주 간단합니다.
+
+1. 각 페이지가 열리면, 오염된 문장이 나타납니다.
+2. 문장 옆의 버튼을 눌러 새로운 문장으로 덮어씁니다.
+3. 저장 버튼을 누르면 끝!
+
+이렇게 총 4개의 페이지를 수정해주세요.
+
+그렇다면, 어떻게 문장을 고쳐 써야 할까요?
+
+우리 공론지는 세상에 존재하는 수많은 이들을 위해 존재하고,
+그들의 진실을 근거로 새로운 문장을 만들어내고 있어요.
+
+당신 앞에 놓인 ‘소녀’의 일기가 바로 그 힌트입니다.
+그 일기를 열어보면 새로운 문장을 써낼 단서들을 얻을 수 있습니다.
+
+결국 우리는 이 ‘소녀’의 진실된 이야기를 지켜내고,
+그 이야기를 모두와 함께 공유하기 위해 만들어진 신문이에요.
+소녀가 누구인지는, 직접 ‘고쳐쓰기’를 하면서 자연스럽게 알게 될 거예요.
+
+자, 준비가 되셨다면,
+이제 페이지 모서리를 마우스로 잡아 당겨 넘겨주세요!`;
+
+  
+  // 텍스트 초기화 후 타이핑 시작
+  page2.textContent = '';
+  page2.classList.add('typing');
+  
+  let i = 0;
+  const typeInterval = setInterval(() => {
+    page2.textContent = originalText.substring(0, i + 1);
+    i++;
+    
+    // 타이핑 완료
+    if (i >= originalText.length) {
+      clearInterval(typeInterval);
+      page2.classList.remove('typing');
+    }
+  }, 100); // 타이핑 속도 조절 (숫자가 작을수록 빠름)
+}</script> -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // page: 페이지 번호, idx: 바꿀 대상(0=첫째, 1=둘째, 2=셋째), src: 바꿀 이미지
+  const PLAN = [
+    { page: 4, idx: 0, src: 'img/8.png' }, // page4: 첫번째 → 8.png
+    { page: 6, idx: 1, src: 'img/1.png' }, // page6: 두번째 → 1.png
+    { page: 8, idx: 2, src: 'img/4.png' }, // page8: 세번째 → 4.png
+  ];
+
+  // 미리 로드(깜빡임 방지)
+  PLAN.forEach(({ src }) => { const i = new Image(); i.src = src; });
+
+  PLAN.forEach(({ page, idx, src }) => {
+    const wrap = document.querySelector(`.page${page} .hintnumber`);
+    if (!wrap) return;
+    const imgs = wrap.querySelectorAll('img');
+    const target = imgs[idx];
+    if (!target) return;
+
+    const onClick = () => {
+      // 한 번만 바뀌면 되면 클릭 핸들러 제거
+      target.removeEventListener('click', onClick);
+
+      // 페이드 아웃 → src 교체 → 페이드 인
+      target.style.opacity = '0';
+      setTimeout(() => {
+        target.src = src;
+        target.style.opacity = '1';
+
+          setTimeout(() => {
+          $("#flipbook").turn("next");
+        }, 3000);
+      }, 300); // 타이밍은 transition과 맞춰서
+    };
+
+    target.addEventListener('click', onClick, { once: true });
+  });
+});
+</script>
+
+
+<script>
+(function(){
+  const flip = $("#flipbook");
+  const v10  = document.getElementById('page10video');
+
+  const popupEl     = document.getElementById('final-popup');
+  const countNumEl  = document.getElementById('count-num');
+
+  let endTimeout    = null;   // 비디오 끝나고 5초 기다리는 타이머
+  let countdownInt  = null;   // 10→1 카운트다운 interval
+
+  // 1) 비디오 종료 시점 감지
+  if (v10) {
+    v10.addEventListener('ended', () => {
+      // 비디오 끝난 뒤 5초 후 팝업 표시
+      endTimeout = setTimeout(showFinalPopup, 5000);
+    });
+  }
+
+  function showFinalPopup() {
+    // 팝업 띄우기
+    popupEl.style.display = 'flex';
+    popupEl.setAttribute('aria-hidden', 'false');
+
+    // 카운트다운 시작 (10 → 1)
+    let n = 15;
+    countNumEl.textContent = n;
+
+    countdownInt = setInterval(() => {
+      n -= 1;
+      countNumEl.textContent = n;
+
+      if (n <= 1) {
+        clearInterval(countdownInt);
+        // 다 됐으면 초기화하고 첫 페이지로
+        // resetExperience();
+        location.reload();
+      }
+    }, 500);
+  }
+
+  // 전체 경험 초기화
+  function resetExperience() {
+    // 1) 팝업 숨기기
+    popupEl.style.display = 'none';
+    popupEl.setAttribute('aria-hidden', 'true');
+
+    // 2) turn.js를 첫 페이지로 되돌리기
+    flip.turn("page", 1);
+
+    // 3) 비디오들 상태 리셋
+    const v2  = document.getElementById('page2video');
+    const v10 = document.getElementById('page10video');
+    if (v2)  { v2.pause();  v2.currentTime = 0; }
+    if (v10) { v10.pause(); v10.currentTime = 0; }
+
+    // 4) 왜곡 타이핑 / 편집 UI 관련 상태도 리셋
+    //    (너가 위쪽 코드에서 쓴 done(Set), timers(Map), data-* 플래그, 이미 붙은 ghost 등)
+    //    - done / timers 는 전역에 있으니까 비우면 다시 동작 가능해.
+    if (window.done)    { window.done.clear(); }
+    if (window.timers)  {
+      // 남아 있는 타이머 취소
+      timers.forEach(t => clearTimeout(t));
+      timers.clear();
+    }
+
+    // 이미 붙여진 왜곡 텍스트(ghost)와 버튼들 제거 + data.distortionAttached 초기화
+    document.querySelectorAll('[data-distortion-attached="1"]').forEach(anchor => {
+      anchor.dataset.distortionAttached = '';
+    });
+    // .distorting 스팬이랑 .action-btn-inline 버튼들 제거
+    document.querySelectorAll('.distorting, .action-btn-inline').forEach(el => {
+      // 중요: 원문의 텍스트(anchor.textContent)는 이미 덮어쓴 상태로 남겨둘 거냐?
+      // "완전 리셋"이라면 anchor 안의 텍스트도 원래 문장으로 돌려야 해.
+      // 그걸 위해 '원래 문장'을 data-original 같은 데 저장해놨다가 여기서 복구하면 됨.
+      // 아직 그 로직은 없으니까 일단 UI 요소만 치움.
+      if (el.parentNode) el.parentNode.removeChild(el);
+    });
+
+    // 5) 필요하면 page2의 타이핑 안내 같은 것도 재사용 가능:
+    //    page2 다시 갔을 때 다시 startPage2Typing() 하고 싶으면,
+    //    page2.dataset.typingStarted = "false" 이런 식으로 풀어주면 됨.
+    const p2 = document.querySelector('#flipbook .page2');
+    if (p2) {
+      p2.dataset.typingStarted = 'false';
+      // p2 내용도 다시 초기 텍스트로 하고 싶으면 여기에 복구 코드 하나 더.
+    }
+
+    // 6) 다시 처음부터 돌릴 준비 끝.
+  }
+})();
+</script>
+
+
+
+</body>
+
+</html>
